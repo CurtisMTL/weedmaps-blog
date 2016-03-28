@@ -19,10 +19,19 @@ Template.blogPosts.blogs = function() {
 	return Blogs.find();
 }
 
-Template.blogPosts.helpers({
+Template.blogPosts.events({
 
 	'click .remove': function(e){
-		e.preventDefault();
 	    Blogs.remove({_id:this._id});  
+	}
+})
+
+Template.blogPosts.helpers({
+	'isOwner': function() {
+		if(Meteor.user().username===this.owner) {
+			return true
+		} else {
+			return false
+		}
 	}
 })

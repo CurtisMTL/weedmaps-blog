@@ -1,10 +1,11 @@
+
 <head>
   <title>WeedMaps Blog</title>
 </head>
 
 <body>
 
-  {{> loginButtons}}
+  {{> logIn}}
   {{> addPost}}
   {{> blogPosts}}
 
@@ -47,8 +48,21 @@
 				<p>{{owner}}</p>
 				<p>{{time}}</p>
 				<p>{{body}}</p>
-				<a href="#" class="remove">X</a>
+				{{#if isOwner}}
+					<a href="#" class="remove">X</a>
+				{{/if}}
 			{{/each}}
 		</div>
 	</div>
+
 </template>
+
+<template name="logIn">
+	<div class="container">
+		<div class="row">
+			  {{> loginButtons}}
+		</div>
+	</div>
+</template>
+
+
